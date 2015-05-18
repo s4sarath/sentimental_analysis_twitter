@@ -3,11 +3,11 @@
 <!-- <input type="submit" name="submit" value="Do Something">
 <input type="submit" name="submit" value="Do Something Else"> -->
 <head>
-<script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+<script src= "static/angular.min.js"></script>
 </head>
 
 <body>
-<h3>Search Locality</h3>
+<!-- <h3>Search Tweets</h3> -->
 {% raw %}
 <div data-ng-app="myapp" data-ng-init="name=1">
 <div ng-controller="MyController" >
@@ -36,9 +36,10 @@
   <script>
     var app = angular.module("myapp", []);
         app.controller("MyController", function($scope, $http) {
+            $scope.msg = 'Click on search button to get tweets'
             $scope.myData = {};
             $scope.getData = function(item, event) {
-                $scope.msg = 'started'
+                $scope.msg = 'Creating feature vector from text for testing. Please wait . . . . .'
 
         $http({
       			method: "post",
