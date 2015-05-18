@@ -7,7 +7,7 @@ import re
 import nltk
 from nltk.corpus import stopwords
 import pandas as pd
-import numpy as np
+# import numpy as np
 
 stopwords = set(stopwords.words("english"))
 
