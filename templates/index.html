@@ -12,11 +12,11 @@
 <div data-ng-app="myapp" data-ng-init="name=1">
 <div ng-controller="MyController" >
     
-	<p><input type="text" ng-model="keys">
+	<p><input type="text" ng-model="search_text">
 <!-- </br> -->
-<button ng-click="myData.doClick(item, $event)">Search</button></p>
+<button ng-click="getData()">Search</button></p>
     <br/>
-     <!-- Data from server: {{myData.fromServer}} -->
+    Msg : <span data-ng-bind="msg"></span>
     </br>
 <!-- id={{myData.fromServer.id}} -->
 <!-- <table border='1px'>
@@ -34,29 +34,30 @@
   </div>
 
   <script>
-    angular.module("myapp", [])
-        .controller("MyController", function($scope, $http) {
+    var app = angular.module("myapp", []);
+        app.controller("MyController", function($scope, $http) {
             $scope.myData = {};
-            $scope.myData.doClick = function(item, event) {
+            $scope.getData = function(item, event) {
+                $scope.msg = 'started'
 
-var request = $http({
+        $http({
       			method: "post",
-                        url: "/getData",
-                        data: {
-                            name: $scope.keys
-                        }
-                    });
+                url: "/getData",
+                data: {"search_text": $scope.search_text}
+        })
 
-                request.success(function(data, status, headers, config) {
-                    $scope.myData.fromServer = data;
-                });
-                request.error(function(data, status, headers, config) {
-                    alert("AJAX failed!");
-                });
-            }
+            .success(function(data) {
+                console.log('success',data)
+                $scope.msg =  data
+            })
+            .error(function(data) {
+                console.log('error occured')
+                $scope.msg = 'error'
+            });
+    }
 
 
-        } );
+        });
   </script>
 </div>
 {% endraw %}
