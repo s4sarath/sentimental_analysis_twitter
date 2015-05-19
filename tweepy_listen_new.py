@@ -4,13 +4,13 @@ from tweepy import OAuthHandler
 from tweepy import Stream
 import os
 
-access_token =         "80039568-RhZutoPYcksyDXBmzt2NKTFnJhCcW20iyWc21SpFW"
+access_token =         " "
 
-access_token_secret =   "Ze6IzW2IWyjFA14ozJmA8tY14Xo7OyPDsMe8oVf5Foz5G"
+access_token_secret =   " "
 
-consumer_key =         "fRPHUdtJyddcMGSVyMvBdXXua"
+consumer_key =         " "
 
-consumer_secret = "Wi00tnu479VFRTxc5URAumQywnTm5iUDqyefCElEjEYMcYNUsl" 
+consumer_secret = " " 
 
 
 def some_task(search_text):
