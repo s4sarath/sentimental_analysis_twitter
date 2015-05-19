@@ -1,0 +1,35 @@
+
+
+#### SENTIMENTAL ANALYSIS ASSIGNMENT
+
+
+1. The folder named ancient- is the one which is a Flask application.
+A version has been deployed to heroku, but it results in timeout due to complexity of the model. But work fine locally. 
+
+Run "python routes.py"
+
+
+2. The sentimental_analysis.ipynb is the ipython version which is quite self explanatory , trained on sts-gold data. But as the data is less, it will be not perfect for new test samples.
+ 
+ But it results in an accuracy of 77% when repeated strings like "happyyy",
+ "yesss" will be added as features. This is also mentioned in the ipyython notebook.
+
+ 3. Sentimental_new.ipynb is the one which trained on stanford data. As the test data is more than 16 lakhs, I wont be able to run in my system. i tried with 2 lakhs, it wont run. But all the model creation is also memntioned in data.
+
+ 4. Heroku link is "https://ancient-peak-6490.herokuapp.com/"
+
+ in the search box add a tweet . By deafult it will wait for 30 sec. if it picks up no tweet, the request will be rejected. Used tweepy module and multithreading.
+
+
+ 5. As a part of feature extraction I have used the following:
+
+ a.) Count vectorizer for counting the total number of words after stemming and tokenization.
+
+ b.) Tf-idf , which doesnt make much change in  accuracy.
+
+ c.) word2vec features, which is a genesim library package, which is an implementation of deep-learning based, word to context features. It results in 71% accuracy.
+
+
+ More can be done and experimented with a sophisticated system.
+
+ System used : Mac Yosemite with 8gb Ram.
